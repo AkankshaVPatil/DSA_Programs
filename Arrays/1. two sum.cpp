@@ -1,5 +1,6 @@
 //https://leetcode.com/problems/two-sum/description/
-1. Two Sum
+//1. Two Sum
+// TC - O(n), SC - O(n)
 
 class Solution {
 public:
