@@ -23,3 +23,40 @@ public:
         return ans;
     }
 };
+
+//------------Approach-II---------------------------------
+//TC - O(n * k), SC - O(n * k)
+class Solution {
+public:
+    string sortString(string str)
+    {
+        vector<int>freq(26, 0);
+        for(int i = 0; i < str.size(); i++)
+        {
+            freq[str[i] - 'a']++;
+        }
+
+        string SortedString = "";
+        for(int i = 0; i < 26; i++)
+        {
+            if(freq[i] > 0)
+               SortedString += string(freq[i], i + 'a'); 
+        }
+        return SortedString;
+    }
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string, vector<string>>umap;
+        for(auto str:strs)
+        {
+            string sortedstr = sortString(str);//
+            umap[sortedstr].push_back(str);
+        }
+
+        vector<vector<string>> ans;
+        for(auto str:umap)
+        {
+            ans.push_back(str.second);
+        }
+        return ans;
+    }
+};
