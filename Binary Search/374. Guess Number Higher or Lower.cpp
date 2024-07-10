@@ -4,12 +4,12 @@
 class Solution {
 public:
     int guessNumber(int n) {
-        long l = 1;
-        long r = n;
+        int l = 1;
+        int r = n;
 
         while(l <= r)// 6 <= 7
         {
-            long mid = (l + r)/2; //6
+            int mid = l + (r - l)/2; //6
             int gs = guess(mid);
             if(gs == 1)
                 l = mid + 1;
