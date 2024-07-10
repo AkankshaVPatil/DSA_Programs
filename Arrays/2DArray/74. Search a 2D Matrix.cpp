@@ -2,7 +2,7 @@
 //74. Search a 2D Matrix
 
 //----------Approach-I
-// TC - O(log(m*n)), SC - O(N)
+// TC - O(log(m*n)), SC - O(1)
 
 class Solution {
 public:
@@ -20,6 +20,29 @@ public:
                 r = mid - 1;
             else if(matrix[mid/n][mid%n] < target)
                 l = mid + 1;
+            else
+                return true;
+        }
+        return false;
+    }
+};
+
+//----------Approach-I
+// TC - O(m*n)), SC - O(1)
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+
+        int i = 0, j = n-1;
+
+        while(i < m && j >= 0)
+        {
+            if(matrix[i][j] > target)
+                j--;
+            else if(matrix[i][j] < target)
+                i++;
             else
                 return true;
         }
