@@ -1,6 +1,6 @@
 //https://leetcode.com/problems/minimum-time-to-complete-trips/
 //  2187. Minimum Time to Complete Trips
-// TC - O(logn), SC - O(1)
+// TC - O(n * logn), SC - O(1)
 
 class Solution {
 public:
