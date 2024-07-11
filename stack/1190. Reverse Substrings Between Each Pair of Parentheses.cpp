@@ -1,5 +1,7 @@
-//
+//https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/description
 //1190. Reverse Substrings Between Each Pair of Parentheses
+// TC - O(n), SC - O(n)
+
 class Solution {
 public:
     string reverseParentheses(string s) {
