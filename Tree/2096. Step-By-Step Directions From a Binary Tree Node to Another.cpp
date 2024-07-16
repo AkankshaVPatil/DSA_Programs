@@ -62,6 +62,7 @@ public:
 
 //------------Approach-II-----
 //using LCA
+//TC - O(n), SC - O(n)
 class Solution {
 public:
     TreeNode* getLCA(TreeNode* root, int startValue, int destValue)
@@ -113,6 +114,53 @@ public:
             result += "U";
         
         result += rightPath;
+        return result;
+    }
+};
+
+//------------Approach-III-----
+//using LCA
+//TC - O(n), SC - O(n)
+class Solution {
+public:
+    bool findPath(TreeNode* root, int value, string &path)
+    {
+        if(root == NULL) return false;
+
+        if(root->val == value)
+            return true;
+        
+        path.push_back('L');
+        if(findPath(root->left, value, path) == true)
+            return true;
+        path.pop_back();
+
+        path.push_back('R');
+        if(findPath(root->right, value, path) == true)
+            return true;
+        path.pop_back();
+
+        return false;
+    }
+
+    string getDirections(TreeNode* root, int startValue, int destValue) {
+        string leftPath = "", rightPath = "";
+        findPath(root, startValue, leftPath);
+        findPath(root, destValue, rightPath);
+        
+        int l = 0;
+        while(l < leftPath.size() && l < rightPath.size() && leftPath[l] == rightPath[l])
+        {
+            l++;
+        }
+        cout << "l " << l << endl;
+
+        string result = "";
+        for(int i = l; i < leftPath.size(); i++)
+            result += "U";
+        
+        for(int i = l; i < rightPath.size(); i++)
+            result += rightPath[i];
         return result;
     }
 };
