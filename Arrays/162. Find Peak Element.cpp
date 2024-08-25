@@ -1,5 +1,6 @@
 //https://leetcode.com/problems/find-peak-element/
 //162. Find Peak Element
+//---------Approach-1---------
 // TC - O(logn), SC - O(1)
 class Solution {
 public:
@@ -19,6 +20,7 @@ public:
     }
 };
 
+//---------Approach-II---------
 // TC - O(logn), SC - O(logn)
 class Solution {
 public:
