@@ -27,3 +27,23 @@ public:
         return TT(root);
     }
 };
+
+//-------Approach-III-------
+class Solution {
+public:
+    void TT(TreeNode* root, int level, int &maxlevel)
+    {
+        if(root == NULL) return;
+        maxlevel = max(level, maxlevel);
+
+        TT(root->left, level+1, maxlevel);
+        TT(root->right, level+1, maxlevel);
+    }
+
+    int maxDepth(TreeNode* root) {
+        if(root == NULL) return 0;
+        int maxlevel = 0;
+        TT(root, 1, maxlevel);
+        return maxlevel;
+    }
+};
